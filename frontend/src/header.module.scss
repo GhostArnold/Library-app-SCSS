@@ -1,0 +1,8 @@
+// Создание переменной
+$header-bgc: #6363cd;
+
+// Стилизация шапки
+.header {
+  background-color: $header-bgc;
+  padding: 5px 0;
+}
