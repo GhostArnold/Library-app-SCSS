@@ -1,0 +1,8 @@
+// Стили для блоков
+@mixin app-block {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+}
+// Задний фон header
+$header-bgc: #6363cd;

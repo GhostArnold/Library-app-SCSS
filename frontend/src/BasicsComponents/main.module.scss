@@ -1,0 +1,44 @@
+@import '../../mixins.scss';
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+
+  // Левая колонка
+  .leftColumn {
+    display: flex;
+    // Занимает всё доступное пространство определённое flex-basic(относительно главного блока)
+    flex: 1;
+    flex-basis: 35%;
+    align-items: center;
+    // align-self: flex-start;
+  }
+
+  // Правая колонка
+  .rightColumn {
+    display: flex;
+    // Занимает всё доступное пространство определённое flex-basic(относительно главного блока)
+    flex: 1;
+    flex-basis: 65%;
+    align-items: center;
+    // Выравнивается по вертикали
+    flex-direction: column;
+  }
+}
+
+// Медиа-запрос для экранов шириной менее 1024px
+@media (max-width: 1024px) {
+  .main {
+    width: 100%; // Устанавливаем ширину на 100% для адаптации к меньшим экранам
+    flex-direction: column; // Изменяем направление флекс-контейнера на колонку
+    align-items: center;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex-basis: 100%; // Оба элемента теперь занимают всю ширину своего контейнера
+    align-self: unset; // Сбрасываем любое самовыравнивание
+  }
+}
