@@ -10,6 +10,11 @@ const booksReducer = (state = initialState, action) => {
       // Возвращаем новое состояние, которое является копией текущего с добавленной новой книгой
       return [...state, action.payload];
 
+    case actionTypes.DELETE_BOOK:
+      // Функция фильтрации state.filter(...):
+      //  Эта функция создаст новый массив, исключающий элементы, которые не удовлетворяют условию в функции обратного вызова. В данном случае она исключает книгу, идентификатор которой совпадает с action.payload.
+      return state.filter((book) => book.id !== action.payload);
+
     // В случае нераспознанного действия возвращаем текущее состояние
     default:
       return state;

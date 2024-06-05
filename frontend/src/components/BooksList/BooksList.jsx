@@ -1,9 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteBook } from '../../redux/Books/actionCreators';
 import styles from './BooksList.module.scss';
 const BooksList = () => {
   //  это хук, предоставляемый библиотекой react-redux, который позволяет компонентам React получать данные из хранилища Redux.
   // books - название редьюсера
   const books = useSelector((state) => state.books);
+
+  // Хук Dispatch
+  const dispatch = useDispatch();
+  const onDeleteHandler = (id) => {
+    dispatch(deleteBook(id));
+  };
   return (
     <div className={styles.appBlock}>
       <h1>Books list: </h1>
@@ -17,7 +24,12 @@ const BooksList = () => {
               <li key={book.id}>
                 <div className={styles.bookInfo}>
                   {++i}. {book.title} by {book.author}
-                  <button class={styles.btnDelete}>Delete</button>
+                  <button
+                    onClick={() => onDeleteHandler(book.id)}
+                    class={styles.btnDelete}
+                  >
+                    Delete
+                  </button>
                 </div>
               </li>
             );
