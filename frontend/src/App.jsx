@@ -2,9 +2,9 @@ import BooksForm from './components/BooksForm/BooksForm';
 import BooksList from './components/BooksList/BooksList';
 import Filter from './components/Filter/Filter';
 // header
-import headerStyles from './BasicsComponents/Header.module.scss';
+import headerStyles from './components/BasicsComponents/Header.module.scss';
 // main
-import mainStyles from './BasicsComponents/Main.module.scss';
+import mainStyles from './components/BasicsComponents/Main.module.scss';
 import './App.css';
 function App() {
   return (
