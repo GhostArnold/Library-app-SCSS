@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { addBook } from '../../redux/Books/actionCreators';
 // Импорт диспатч хука
 import { useDispatch } from 'react-redux';
+// Делаем импорт пакета для уникальных id
+import { v4 as uuidv4 } from 'uuid';
 import styles from './BooksForm.module.scss';
 const BooksForm = () => {
   // Состояние поля title
@@ -20,10 +22,13 @@ const BooksForm = () => {
     const book = {
       title: title,
       author: author,
+      // Уникальный id
+      id: uuidv4(),
     };
 
     // Если title и author заполнены чем-то
     if (title && author) {
+      // alert(book.id.toString());
       //Отправляем изменения
       dispatch(addBook(book));
 

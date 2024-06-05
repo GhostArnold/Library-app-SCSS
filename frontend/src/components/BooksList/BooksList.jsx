@@ -11,17 +11,18 @@ const BooksList = () => {
       {books.length === 0 ? (
         <h3>Not books avaliable</h3>
       ) : (
-        books.map((book, i) => {
-          return (
-            <ul>
-              <li key={i}>
+        <ul>
+          {books.map((book, i) => {
+            return (
+              <li key={book.id}>
                 <div className={styles.bookInfo}>
                   {++i}. {book.title} by {book.author}
+                  <button class={styles.btnDelete}>Delete</button>
                 </div>
               </li>
-            </ul>
-          );
-        })
+            );
+          })}
+        </ul>
       )}
     </div>
   );
