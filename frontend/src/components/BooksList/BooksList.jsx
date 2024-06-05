@@ -15,7 +15,7 @@ const BooksList = () => {
           return (
             <ul>
               <li key={i}>
-                <div>
+                <div className={styles.bookInfo}>
                   {++i}. {book.title} by {book.author}
                 </div>
               </li>

@@ -1,4 +1,14 @@
 @import '../../MixinsAndVariables/mixins.scss';
+@import '../../MixinsAndVariables/variables.scss';
 .appBlock {
   @include app-block;
+}
+.bookInfo {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  &:hover {
+    background-color: $book-list-hover;
+  }
 }
