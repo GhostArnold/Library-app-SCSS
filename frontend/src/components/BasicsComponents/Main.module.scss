@@ -12,9 +12,10 @@
     // Занимает всё доступное пространство определённое flex-basic(относительно главного блока)
     flex: 1;
     flex-basis: 35%;
-    align-items: center;
-    // Чтобы прикрепить к верхниму краю
-    align-self: flex-start;
+    //// Чтобы прикрепить к верхниму краю
+    align-items: flex-start;
+
+    // align-self: flex-start;
   }
 
   // Правая колонка
