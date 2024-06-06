@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteBook } from '../../redux/Books/actionCreators';
+import { deleteBook, toggleFavorite } from '../../redux/Books/actionCreators';
+// Иконки избранного
+import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 import styles from './BooksList.module.scss';
 const BooksList = () => {
   //  это хук, предоставляемый библиотекой react-redux, который позволяет компонентам React получать данные из хранилища Redux.
@@ -10,6 +12,9 @@ const BooksList = () => {
   const dispatch = useDispatch();
   const onDeleteHandler = (id) => {
     dispatch(deleteBook(id));
+  };
+  const onToggleFavoriteHandler = (id) => {
+    dispatch(toggleFavorite(id));
   };
   return (
     <div className={styles.appBlock}>
@@ -26,13 +31,27 @@ const BooksList = () => {
                   <div>
                     {++i}. {book.title} by {book.author}
                   </div>
-                  <div>
-                    <button
-                      onClick={() => onDeleteHandler(book.id)}
-                      className={styles.btnDelete}
+                  <div className={styles.icons}>
+                    <div
+                      onClick={() => onToggleFavoriteHandler(book.id)}
+                      className={styles.favorite}
                     >
-                      Delete
-                    </button>
+                      {/* Избранное */}
+                      {book.isFavorite === false ? (
+                        <BsBookmark className={styles.favoriteIcon} />
+                      ) : (
+                        <BsBookmarkFill className={styles.favoriteIcon} />
+                      )}
+                      {/* Удаление */}
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => onDeleteHandler(book.id)}
+                        className={styles.btnDelete}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
               </li>

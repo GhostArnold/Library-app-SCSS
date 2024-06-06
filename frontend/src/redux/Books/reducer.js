@@ -15,6 +15,13 @@ const booksReducer = (state = initialState, action) => {
       //  Эта функция создаст новый массив, исключающий элементы, которые не удовлетворяют условию в функции обратного вызова. В данном случае она исключает книгу, идентификатор которой совпадает с action.payload.
       return state.filter((book) => book.id !== action.payload);
 
+    case actionTypes.TOGGLE_FAVORITE:
+      return state.map((book) =>
+        book.id === action.payload
+          ? { ...book, isFavorite: !book.isFavorite }
+          : book
+      );
+
     // В случае нераспознанного действия возвращаем текущее состояние
     default:
       return state;

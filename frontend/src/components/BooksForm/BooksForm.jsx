@@ -24,6 +24,8 @@ const BooksForm = () => {
     const book = {
       title: title,
       author: author,
+      // Избранное
+      isFavorite: false,
       // Уникальный id
       id: uuidv4(),
     };
@@ -47,6 +49,8 @@ const BooksForm = () => {
     const randomBookWithID = {
       // Объект с title,author,year
       ...randomBook,
+      // Для избранного
+      isFavorite: false,
       // Добавляем id
       id: uuidv4(),
     };

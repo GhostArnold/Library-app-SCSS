@@ -14,18 +14,31 @@
   &:hover {
     background-color: $book-list-hover;
   }
-  .btnDelete {
-    background-color: #fff;
-    padding: 8px 14px;
-    border: 1px solid red;
-    border-radius: 3px;
-    color: red;
-    margin-left: 15px;
-    font-size: 13px;
-    cursor: pointer;
 
-    &:hover {
-      background-color: rgba(255, 0, 0, 0.164);
+  .icons {
+    display: flex;
+    align-items: center;
+
+    .btnDelete {
+      background-color: #fff;
+      padding: 8px 14px;
+      border: 1px solid red;
+      border-radius: 3px;
+      color: red;
+      margin-left: 15px;
+      font-size: 13px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 0, 0, 0.164);
+      }
+    }
+
+    .favoriteIcon {
+      color: #fca510;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
     }
   }
 }
