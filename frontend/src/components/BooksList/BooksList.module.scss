@@ -9,6 +9,8 @@
   background-color: #fff;
   border-radius: 10px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
   &:hover {
     background-color: $book-list-hover;
   }

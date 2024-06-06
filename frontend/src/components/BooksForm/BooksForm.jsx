@@ -5,6 +5,8 @@ import { addBook } from '../../redux/Books/actionCreators';
 import { useDispatch } from 'react-redux';
 // Делаем импорт пакета для уникальных id
 import { v4 as uuidv4 } from 'uuid';
+// Делаем импорт объекта json
+import booksData from '../../data/books.json';
 import styles from './BooksForm.module.scss';
 const BooksForm = () => {
   // Состояние поля title
@@ -37,10 +39,24 @@ const BooksForm = () => {
       setAuthor('');
     }
   };
+  // Добавляем рандомную книгу
+  const onAddRandomBookHandler = () => {
+    // Рандомне число от 0 до длинны json()
+    const randomIndex = Math.floor(Math.random() * booksData.length);
+    const randomBook = booksData[randomIndex];
+    const randomBookWithID = {
+      // Объект с title,author,year
+      ...randomBook,
+      // Добавляем id
+      id: uuidv4(),
+    };
+
+    dispatch(addBook(randomBookWithID));
+  };
   return (
     <div className={` ${styles.appBlock} ${styles.bookForm}`}>
       <h1>Add a new Book</h1>
-      <form onSubmit={onSubmitHandler} className={styles}>
+      <form onSubmit={onSubmitHandler}>
         <div>
           <label htmlFor="title">Title</label>
           <input
@@ -61,7 +77,10 @@ const BooksForm = () => {
             onChange={(e) => setAuthor(e.target.value)}
           />
         </div>
-        <button>Add Book</button>
+        <button type="submit">Add Book</button>
+        <button type="button" onClick={onAddRandomBookHandler}>
+          Add Random
+        </button>
       </form>
     </div>
   );

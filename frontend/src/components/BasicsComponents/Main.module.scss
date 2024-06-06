@@ -13,7 +13,8 @@
     flex: 1;
     flex-basis: 35%;
     align-items: center;
-    // align-self: flex-start;
+    // Чтобы прикрепить к верхниму краю
+    align-self: flex-start;
   }
 
   // Правая колонка

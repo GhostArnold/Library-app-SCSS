@@ -23,13 +23,17 @@ const BooksList = () => {
             return (
               <li key={book.id}>
                 <div className={styles.bookInfo}>
-                  {++i}. {book.title} by {book.author}
-                  <button
-                    onClick={() => onDeleteHandler(book.id)}
-                    class={styles.btnDelete}
-                  >
-                    Delete
-                  </button>
+                  <div>
+                    {++i}. {book.title} by {book.author}
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => onDeleteHandler(book.id)}
+                      className={styles.btnDelete}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </li>
             );
