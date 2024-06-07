@@ -1,19 +1,22 @@
 import BooksForm from './components/BooksForm/BooksForm';
 import BooksList from './components/BooksList/BooksList';
 import Filter from './components/Filter/Filter';
+// header
+import headerStyles from './components/BasicsComponents/Header.module.scss';
+// main
+import mainStyles from './components/BasicsComponents/Main.module.scss';
 import './App.css';
-import styles from './header.module.scss';
 function App() {
   return (
     <div className="App">
-      <header className={styles.header}>
+      <header className={headerStyles.header}>
         <h1>Book Library App</h1>
       </header>
-      <main>
-        <div>
+      <main className={mainStyles.main}>
+        <div className={mainStyles.leftColumn}>
           <BooksForm />
         </div>
-        <div>
+        <div className={mainStyles.rightColumn}>
           <Filter />
           <BooksList />
         </div>

@@ -1,0 +1,44 @@
+@import '../../MixinsAndVariables/mixins.scss';
+@import '../../MixinsAndVariables/variables.scss';
+.appBlock {
+  @include app-block;
+}
+.bookInfo {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  &:hover {
+    background-color: $book-list-hover;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+
+    .btnDelete {
+      background-color: #fff;
+      padding: 8px 14px;
+      border: 1px solid red;
+      border-radius: 3px;
+      color: red;
+      margin-left: 15px;
+      font-size: 13px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $delete-book-hover;
+      }
+    }
+
+    .favoriteIcon {
+      color: $favorite-icon;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+}

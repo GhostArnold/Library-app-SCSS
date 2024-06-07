@@ -1,0 +1,37 @@
+@import '../../MixinsAndVariables/mixins.scss';
+@import '../../MixinsAndVariables/variables.scss';
+.appBlock {
+  @include app-block;
+}
+.bookForm {
+  width: 100%;
+
+  label {
+    // Чтобы лэйбл считался как блочный элемент
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  input {
+    width: 100%;
+    padding: 5px 3px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1.5px solid #ccc;
+  }
+  button {
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: $add-book;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    // Для плавности при наведении
+    transition: background-color 0.3s ease;
+    margin: 8px 10px;
+    &:hover {
+      background-color: $add-book-hover;
+    }
+  }
+}

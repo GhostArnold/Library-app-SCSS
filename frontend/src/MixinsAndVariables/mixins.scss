@@ -1,0 +1,7 @@
+// Стили для блоков
+@mixin app-block {
+  background-color: #f2f2f2;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 10px;
+}

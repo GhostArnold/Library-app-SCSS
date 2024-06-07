@@ -1,0 +1,4 @@
+@import '../../MixinsAndVariables/mixins.scss';
+.appBlock {
+  @include app-block;
+}
