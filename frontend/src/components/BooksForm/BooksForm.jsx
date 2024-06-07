@@ -4,9 +4,11 @@ import { addBook } from '../../redux/Books/actionCreators';
 // Импорт диспатч хука
 import { useDispatch } from 'react-redux';
 // Делаем импорт пакета для уникальных id
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 // Делаем импорт объекта json
 import booksData from '../../data/books.json';
+// Для упрощение формирования объекта
+import createBookWithId from '../../utils/createBookWithId';
 import styles from './BooksForm.module.scss';
 const BooksForm = () => {
   // Состояние поля title
@@ -21,14 +23,10 @@ const BooksForm = () => {
     // Чтобы страница не перезагружалась
     e.preventDefault();
     // Объект, который мы добавляем в payload
-    const book = {
-      title: title,
-      author: author,
-      // Избранное
-      isFavorite: false,
-      // Уникальный id
-      id: uuidv4(),
-    };
+    const book = createBookWithId({
+      title,
+      author,
+    });
 
     // Если title и author заполнены чем-то
     if (title && author) {
@@ -46,14 +44,7 @@ const BooksForm = () => {
     // Рандомне число от 0 до длинны json()
     const randomIndex = Math.floor(Math.random() * booksData.length);
     const randomBook = booksData[randomIndex];
-    const randomBookWithID = {
-      // Объект с title,author,year
-      ...randomBook,
-      // Для избранного
-      isFavorite: false,
-      // Добавляем id
-      id: uuidv4(),
-    };
+    const randomBookWithID = createBookWithId(randomBook);
 
     dispatch(addBook(randomBookWithID));
   };

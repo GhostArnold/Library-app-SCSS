@@ -30,12 +30,12 @@
       cursor: pointer;
 
       &:hover {
-        background-color: rgba(255, 0, 0, 0.164);
+        background-color: $delete-book-hover;
       }
     }
 
     .favoriteIcon {
-      color: #fca510;
+      color: $favorite-icon;
       width: 25px;
       height: 25px;
       cursor: pointer;
