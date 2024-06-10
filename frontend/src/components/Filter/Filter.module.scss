@@ -2,3 +2,15 @@
 .appBlock {
   @include app-block;
 }
+.mainBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  input {
+    padding: 5px 3px;
+    border-radius: 5px;
+    border: 1.5px solid #ccc;
+  }
+}

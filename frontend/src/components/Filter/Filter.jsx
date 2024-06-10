@@ -3,8 +3,9 @@ const Filter = () => {
   return (
     <div className={styles.appBlock}>
       <h1>Filter</h1>
-      <div>
+      <div className={styles.mainBlock}>
         <input type="text" placeholder="Filter by title" />
+        <input type="text" placeholder="Filter by author" />
       </div>
     </div>
   );
