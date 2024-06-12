@@ -1,4 +1,32 @@
 @import '../../MixinsAndVariables/mixins.scss';
+@import '../../MixinsAndVariables/variables.scss';
 .appBlock {
   @include app-block;
+}
+.mainBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  input {
+    padding: 5px 3px;
+    border-radius: 5px;
+    border: 1.5px solid #ccc;
+  }
+  .btnReset {
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: $add-book;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    // Для плавности при наведении
+    transition: background-color 0.3s ease;
+    margin: 8px 10px;
+    &:hover {
+      background-color: $add-book-hover;
+    }
+  }
 }
