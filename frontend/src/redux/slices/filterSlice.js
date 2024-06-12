@@ -15,7 +15,7 @@ const filterSlice = createSlice({
       state.title = action.payload;
     },
     // Редьюсер для установки фильтра по автору
-    setAuthorFiltter: (state, action) => {
+    setAuthorFilter: (state, action) => {
       state.author = action.payload;
     },
   },
