@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   selectTitleFilter,
   selectAuthorFilter,
+  selectFavoriteFilter,
 } from '../../redux/slices/filterSlice';
 // Импортируем экшены для изменения состояния фильтров
 import {
   setTitleFilter,
   setAuthorFilter,
+  setFavoriteFilter,
 } from '../../redux/slices/filterSlice';
 import styles from './Filter.module.scss';
 const Filter = () => {
@@ -15,7 +17,7 @@ const Filter = () => {
   // Получаем текущие значения фильтров используя селекторы и хук useSelector
   const titleFilter = useSelector(selectTitleFilter);
   const authorFilter = useSelector(selectAuthorFilter);
-
+  const favoriteFilter = useSelector(selectFavoriteFilter);
   // Обработчик изменения поля фильтра по названию
   const handleTitleChange = (e) => {
     dispatch(setTitleFilter(e.target.value));
@@ -24,6 +26,11 @@ const Filter = () => {
   // Обработчик изменения поля фильтра по автору
   const handleAuthorChange = (e) => {
     dispatch(setAuthorFilter(e.target.value));
+  };
+
+  // Обработчик избранного
+  const handleFavoriteChange = () => {
+    dispatch(setFavoriteFilter());
   };
   return (
     <div className={styles.appBlock}>
@@ -41,6 +48,14 @@ const Filter = () => {
           value={authorFilter}
           onChange={handleAuthorChange}
         />
+        <label>
+          <input
+            type="checkbox"
+            checked={favoriteFilter}
+            onChange={handleFavoriteChange}
+          />
+          Only Favorite
+        </label>
       </div>
     </div>
   );

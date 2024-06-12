@@ -5,6 +5,7 @@ import { deleteBook, toggleFavorite } from '../../redux/Books/actionCreators';
 import {
   selectTitleFilter,
   selectAuthorFilter,
+  selectFavoriteFilter,
 } from '../../redux/slices/filterSlice';
 import styles from './BooksList.module.scss';
 const BooksList = () => {
@@ -14,6 +15,7 @@ const BooksList = () => {
   // Получаем текущие значения фильтров используя селекторы и хук useSelector
   const titleFilter = useSelector(selectTitleFilter);
   const authorFilter = useSelector(selectAuthorFilter);
+  const favoriteFilter = useSelector(selectFavoriteFilter);
   // Хук Dispatch
   const dispatch = useDispatch();
   const onDeleteHandler = (id) => {
@@ -26,7 +28,9 @@ const BooksList = () => {
   const booksFiltered = books.filter((book) => {
     return (
       book.title.toLowerCase().includes(titleFilter.toLowerCase()) &&
-      book.author.toLowerCase().includes(authorFilter.toLowerCase())
+      book.author.toLowerCase().includes(authorFilter.toLowerCase()) &&
+      // Если чекбокс true, то фильтруем
+      (favoriteFilter ? book.isFavorite : true)
     );
   });
 
