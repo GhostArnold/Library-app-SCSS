@@ -22,11 +22,18 @@ const filterSlice = createSlice({
     setFavoriteFilter: (state) => {
       state.isFavorite = !state.isFavorite;
     },
+    resetFilters: () => {
+      return initialState;
+    },
   },
 });
 // Экспорт экшенов
-export const { setTitleFilter, setAuthorFilter, setFavoriteFilter } =
-  filterSlice.actions;
+export const {
+  setTitleFilter,
+  setAuthorFilter,
+  setFavoriteFilter,
+  resetFilters,
+} = filterSlice.actions;
 // Селекторы для получения значений фильтров из состояния
 export const selectTitleFilter = (state) => state.filter.title;
 export const selectAuthorFilter = (state) => state.filter.author;

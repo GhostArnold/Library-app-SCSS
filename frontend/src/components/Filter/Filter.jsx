@@ -10,6 +10,7 @@ import {
   setTitleFilter,
   setAuthorFilter,
   setFavoriteFilter,
+  resetFilters,
 } from '../../redux/slices/filterSlice';
 import styles from './Filter.module.scss';
 const Filter = () => {
@@ -31,6 +32,11 @@ const Filter = () => {
   // Обработчик избранного
   const handleFavoriteChange = () => {
     dispatch(setFavoriteFilter());
+  };
+
+  // Сброс всех фильтров
+  const handleResetFilters = () => {
+    dispatch(resetFilters());
   };
   return (
     <div className={styles.appBlock}>
@@ -56,6 +62,10 @@ const Filter = () => {
           />
           Only Favorite
         </label>
+
+        <button className={styles.btnReset} onClick={handleResetFilters}>
+          Reset
+        </button>
       </div>
     </div>
   );
